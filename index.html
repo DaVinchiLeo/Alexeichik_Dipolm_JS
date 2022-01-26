@@ -1,15 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div id="page-preloader" class="preloader">
+      <canvas></canvas>
+      <div class="loader"></div>
+    </div>
 
-</body>
+    <header>
+      <div class="hero">
+        <h1>Сalculator of construction estimates</h1>
+      </div>
+      <div class="content-wrapper">
+        <h1>Описание</h1>
+        <p>
+          «Сметный калькулятор» представляет из себя инструмент для расчета разного типа данных. Пользователям предоставляется доступ к базе актуальных расценок, можно вести журнал, отслеживать
+          наличие материалов и создавать дефектные ведомости.
+        </p>
 
+        <p>
+          Существует несколько типов калькуляторов для определения бюджета: небольшие, для планирования личного ремонта; и профессиональные, которые помогут в управлении компанией подрядчиков.
+          Некоторые также предлагают визуализацию помещения.
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="tabtop">
+        <button class="tablinkstop" onclick="tabMenutop(event, 'A')" id="defaultOpenTop">Главная</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'B')">Внутренние стены</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'C')">Фундамент</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'D')">Фасад</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'F')">Пол</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'E')">6</button>
+        <button class="tablinkstop" onclick="tabMenutop(event, 'Y')">7(Тут хочу API с точками)</button>
+      </div>
+      <div class="for_flex">
+        <div id="A" class="tabcontenttop">
+          <h2>Описание</h2>
+          <p>
+            «Сметный калькулятор» представляет из себя инструмент для расчета разного типа данных. Пользователям предоставляется доступ к базе актуальных расценок, можно вести журнал, отслеживать
+            наличие материалов и создавать дефектные ведомости.
+          </p>
+          <p>
+            Существует несколько типов калькуляторов для определения бюджета: небольшие, для планирования личного ремонта; и профессиональные, которые помогут в управлении компанией подрядчиков.
+            Некоторые также предлагают визуализацию помещения.
+          </p>
+        </div>
+        <div id="B" class="tabcontenttop">
+          <div class="tab">
+            <button class="tablinks" onclick="tabMenu(event, 'A1')" id="defaultOpen">Обои</button>
+            <button class="tablinks" onclick="tabMenu(event, 'B1')">Выравнивание поверхности стен</button>
+            <button class="tablinks" onclick="tabMenu(event, 'C1')">Другие виды работ</button>
+          </div>
+
+          <div id="A1" class="tabcontent">
+            <h2>Содержимое 1...</h2>
+            <input type="text" id="q1" placeholder="стена1" /><br />
+            <input type="text" id="q2" placeholder="стена2" /><br />
+            <input type="text" id="q3" placeholder="высота стен" /><br />
+            <hr />
+            <input type="text" id="q4" placeholder="ширина полосы обоев" /><br />
+            <input type="text" id="q5" placeholder="длина рулона" /><br />
+            <button id="q">Расчитать</button> <br />
+            <div id="q_result"></div>
+            <button id="q_print" class="print">Распечатать</button> <br />
+          </div>
+          <div id="B1" class="tabcontent">
+            <h2>Содержимое 2...</h2>
+            <input type="text" id="w1" placeholder="ширина стены" /><br />
+            <input type="text" id="w2" placeholder="высота стены" /><br />
+            <hr />
+            <input type="text" id="w3" placeholder="норма расхода шпатлевки" /><br />
+            <input type="text" id="w4" placeholder="норма расхода штукатурки" /><br />
+            <input type="text" id="w5" placeholder="норма расхода грунтовки" /><br />
+            <button id="w">Расчитать</button> <br />
+            <div id="w_result"></div>
+            <button id="w_print" class="print">Распечатать</button> <br />
+          </div>
+          <div id="C1" class="tabcontent"></div>
+        </div>
+
+        <div id="C" class="tabcontenttop">
+          <div class="tab">
+            <button class="tablinks" onclick="tabMenu2(event, 'A2')" id="defaultOpenFund">Плита</button>
+            <button class="tablinks" onclick="tabMenu2(event, 'B2')">Ленточный</button>
+            <button class="tablinks" onclick="tabMenu2(event, 'C2')">Свайный</button>
+          </div>
+          <div id="A2" class="tabcontent2">
+            <p>плита</p>
+            <input type="text" id="e1" placeholder="ширина плиты" /><br />
+            <input type="text" id="e2" placeholder="длина плиты" /><br />
+            <input type="text" id="e3" placeholder="высота плиты" /><br />
+            <hr />
+            <button id="e">Расчитать</button> <br />
+            <div id="e_result"></div>
+            <canvas id="imageView" width="600" height="500"></canvas>
+            <button id="e_print" class="print">Распечатать</button> <br />
+          </div>
+          <div id="B2" class="tabcontent2">лента</div>
+          <div id="C2" class="tabcontent2">свая</div>
+        </div>
+        <div id="D" class="tabcontenttop">4</div>
+        <div id="F" class="tabcontenttop">5</div>
+        <div id="E" class="tabcontenttop">6</div>
+        <div id="Y" class="tabcontenttop"><div id="map" style="width: 600px; height: 400px"></div></div>
+      </div>
+    </main>
+    <footer>
+      <!--  <video class="head_video" src="/media/Gears - 5352.mp4" autoplay muted loop></video>-->
+    </footer>
+  </body>
 </html>
