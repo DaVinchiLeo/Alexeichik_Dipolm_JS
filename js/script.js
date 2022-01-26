@@ -14,7 +14,9 @@ q.onclick = function (event) {
   let lines_in_rulon = Math.round(Number(q5.value / q3.value));
   let culc_rulon = Math.round(Number(p / q4.value / lines_in_rulon));
 
-  q_result.innerText = `${s} метров квадратных`;
+  q_result.innerText = `площадь стен${s}
+  метров квадратных ${p}
+  Кол рулонов  ${culc_rulon}`;
   console.log(
     `площадь стен${s}
    метров квадратных ${p}
@@ -37,7 +39,10 @@ w.onclick = function (event) {
   let kol_shpat = Number(s2) * Number(w3.value);
   let kol_shtukatur = Number(s2) * Number(w4.value);
   let kol_grunt = Number(s2) * Number(w5.value);
-  w_result.innerText = `${s2} стена метров квадратных`;
+  w_result.innerText = `площадь стены=${s2}метров квадратных;
+  при норме расхода ${w3.value}потребеется ${kol_shpat}шпатлевеки;
+  при норме расхода ${w4.value}потребеется ${kol_shtukatur} штукатурки;
+  при норме расхода ${w5.value}потребеется ${kol_grunt} грунтовки;`;
   console.log(
     `площадь стены=${s2}метров квадратных;
    при норме расхода ${w3.value}потребеется ${kol_shpat}шпатлевеки;
@@ -54,7 +59,7 @@ e.onclick = function (event) {
   let e1 = document.getElementById("e1");
   let e2 = document.getElementById("e2");
   let e3 = document.getElementById("e3");
-
+  let imageView1 = document.getElementById("imageView1");
   let e_result = document.getElementById("e_result");
   let p_e = Number(Number(e1.value) + Number(e2.value)) * 2;
   let s_e = Number(e1.value) * Number(e2.value);
@@ -65,6 +70,41 @@ e.onclick = function (event) {
    площадь борта плиты ${s_bok_pover} метров квадратных;`;
   let e_print = document.getElementById("e_print");
   e_print.style.display = "block";
+  imageView1.style.display = "block";
+  event.stopPropagation();
+};
+let r = document.getElementById("r");
+r.onclick = function (event) {
+  let r1 = document.getElementById("r1");
+  let r2 = document.getElementById("r2");
+  let r3 = document.getElementById("r3");
+  let r4 = document.getElementById("r4");
+  let imageView = document.getElementById("imageView");
+  let r_result = document.getElementById("r_result");
+
+  let s_r = (Number(r1.value) + Number(r2.value)) * Number(r3.value) * 2;
+  r_result.innerText = `площадь ленточного фундамента=${s_r} метров кубических`;
+
+  let r_print = document.getElementById("r_print");
+  r_print.style.display = "block";
+  imageView.style.display = "block";
+  event.stopPropagation();
+};
+let t = document.getElementById("t");
+t.onclick = function (event) {
+  let t1 = document.getElementById("t1");
+  let t2 = document.getElementById("t2");
+  let t3 = document.getElementById("t3");
+  let t4 = document.getElementById("t4");
+  let imageView4 = document.getElementById("imageView4");
+  let t_result = document.getElementById("t_result");
+
+  let s_t = Number(t1.value) * Number(t2.value) * Number(t3.value) * Number(t4.value);
+  t_result.innerText = `при${t4.value} сваях потребуется: ${s_t}метров куб. раствора`;
+
+  let t_print = document.getElementById("t_print");
+  t_print.style.display = "block";
+  imageView4.style.display = "block";
   event.stopPropagation();
 };
 //Top tab menu
@@ -122,7 +162,10 @@ w_print.onclick = function (event) {
   window.print();
   event.stopPropagation();
 };
-
+e_print.onclick = function (event) {
+  window.print();
+  event.stopPropagation();
+};
 //--------------------------------------------------------------------------------------
 const canvas = document.querySelector("canvas");
 canvas.width = window.innerWidth;
@@ -189,124 +232,13 @@ document.body.onload = function () {
     }
   }, 3000);
 };
-//canvas------------------------------
-let canvas2, context, canvaso, contexto;
-canvaso = document.getElementById("imageView");
-context = canvaso.getContext("2d");
-context.lineWidth = 5;
+//------------------map---------------------------------
 
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(39, 278);
-context.lineTo(368, 22);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(367, 22);
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(368, 21);
-context.lineTo(549, 141);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(39, 275);
-context.lineTo(205, 417);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(549, 141);
-context.lineTo(204, 416);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(40, 274);
-context.lineTo(41, 335);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(205, 416);
-context.lineTo(205, 465);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(40, 331);
-context.lineTo(204, 470);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(548, 141);
-context.lineTo(548, 199);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(548, 196);
-context.lineTo(204, 466);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(76, 278);
-context.lineTo(368, 50);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(202, 390);
-context.lineTo(514, 141);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(79, 277);
-context.lineTo(203, 387);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(365, 47);
-context.lineTo(512, 142);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(367, 53);
-context.lineTo(368, 94);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(366, 92);
-context.lineTo(104, 297);
-context.stroke();
-context.closePath();
-
-context.strokeStyle = "#000000";
-context.beginPath();
-context.moveTo(369, 92);
-context.lineTo(481, 165);
-context.stroke();
-context.closePath();
+ymaps.ready(init);
+let myMap;
+function init() {
+  myMap = new ymaps.Map("map", {
+    center: [53.91614483, 27.58787701],
+    zoom: 15,
+  });
+}

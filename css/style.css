@@ -198,3 +198,15 @@ h1 {
   text-indent: 1.5em;
   font-family: Ubuntu;
 }
+#imageView {
+  display: none;
+}
+#imageView1 {
+  display: none;
+}
+#imageView4 {
+  display: none;
+}
+.my_map {
+  height: 100%;
+}

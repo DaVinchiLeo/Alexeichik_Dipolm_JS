@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/script.js" defer></script>
+    <script src="/js/canvas_js.js" defer></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=a6cd7e39-6dc2-42ba-8a0b-e21309b85202" type="text/javascript"></script>
     <title>Document</title>
   </head>
 
@@ -40,8 +42,8 @@
         <button class="tablinkstop" onclick="tabMenutop(event, 'C')">Фундамент</button>
         <button class="tablinkstop" onclick="tabMenutop(event, 'D')">Фасад</button>
         <button class="tablinkstop" onclick="tabMenutop(event, 'F')">Пол</button>
-        <button class="tablinkstop" onclick="tabMenutop(event, 'E')">6</button>
-        <button class="tablinkstop" onclick="tabMenutop(event, 'Y')">7(Тут хочу API с точками)</button>
+
+        <button class="tablinkstop" onclick="tabMenutop(event, 'Y')">Карта</button>
       </div>
       <div class="for_flex">
         <div id="A" class="tabcontenttop">
@@ -63,7 +65,6 @@
           </div>
 
           <div id="A1" class="tabcontent">
-            <h2>Содержимое 1...</h2>
             <input type="text" id="q1" placeholder="стена1" /><br />
             <input type="text" id="q2" placeholder="стена2" /><br />
             <input type="text" id="q3" placeholder="высота стен" /><br />
@@ -75,7 +76,6 @@
             <button id="q_print" class="print">Распечатать</button> <br />
           </div>
           <div id="B1" class="tabcontent">
-            <h2>Содержимое 2...</h2>
             <input type="text" id="w1" placeholder="ширина стены" /><br />
             <input type="text" id="w2" placeholder="высота стены" /><br />
             <hr />
@@ -96,23 +96,42 @@
             <button class="tablinks" onclick="tabMenu2(event, 'C2')">Свайный</button>
           </div>
           <div id="A2" class="tabcontent2">
-            <p>плита</p>
             <input type="text" id="e1" placeholder="ширина плиты" /><br />
             <input type="text" id="e2" placeholder="длина плиты" /><br />
             <input type="text" id="e3" placeholder="высота плиты" /><br />
             <hr />
             <button id="e">Расчитать</button> <br />
             <div id="e_result"></div>
-            <canvas id="imageView" width="600" height="500"></canvas>
+            <canvas id="imageView1" width="600" height="400"></canvas>
             <button id="e_print" class="print">Распечатать</button> <br />
           </div>
-          <div id="B2" class="tabcontent2">лента</div>
-          <div id="C2" class="tabcontent2">свая</div>
+          <div id="B2" class="tabcontent2">
+            <input type="text" id="r1" placeholder="ширина фундамента" /><br />
+            <input type="text" id="r2" placeholder="длина фундамента" /><br />
+            <input type="text" id="r3" placeholder="высота фундамента" /><br />
+            <input type="text" id="r4" placeholder="ширина ленты" /><br />
+            <hr />
+            <button id="r">Расчитать</button> <br />
+            <div id="r_result"></div>
+            <canvas id="imageView" width="600" height="400"></canvas>
+            <button id="r_print" class="print">Распечатать</button> <br />
+          </div>
+          <div id="C2" class="tabcontent2">
+            <input type="text" id="t1" placeholder="ширина сваи" /><br />
+            <input type="text" id="t2" placeholder="длина сваи" /><br />
+            <input type="text" id="t3" placeholder="высота сваи" /><br />
+            <input type="text" id="t4" placeholder="количество" /><br />
+            <hr />
+            <button id="t">Расчитать</button> <br />
+            <div id="t_result"></div>
+            <canvas id="imageView4" width="600" height="400"></canvas>
+            <button id="t_print" class="print">Распечатать</button> <br />
+          </div>
         </div>
-        <div id="D" class="tabcontenttop">4</div>
-        <div id="F" class="tabcontenttop">5</div>
-        <div id="E" class="tabcontenttop">6</div>
-        <div id="Y" class="tabcontenttop"><div id="map" style="width: 600px; height: 400px"></div></div>
+        <div id="D" class="tabcontenttop">...</div>
+        <div id="F" class="tabcontenttop">...</div>
+
+        <div id="Y" class="tabcontenttop"><div id="map" class="my_map"></div></div>
       </div>
     </main>
     <footer>
